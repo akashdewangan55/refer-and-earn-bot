@@ -151,15 +151,11 @@ function processUpdate($update) {
                 break;
                 
             $bot_info = json_decode(file_get_contents(API_URL . "getMe"), true);
-$bot_username = $bot_info["result"]["username"];  // example: autoreply24bot
+$bot_username = $bot_info["result"]["username"];
+$msg = "Invite link: https://t.me/{$bot_username}?start={$users[$chat_id]['ref_code']}";
 
 case 'referrals':
-    $ref_code = $users[$chat_id]['ref_code'];
-    $referrals = $users[$chat_id]['referrals'];
-    $msg = "👥 Referral System\n";
-    $msg .= "Your code: <b>$ref_code</b>\n";
-    $msg .= "Referrals: $referrals\n";
-    $msg .= "Invite link: https://t.me/$bot_username?start=$ref_code\n";
+
     $msg .= "💰 50 points per referral!";
     break;
                 
