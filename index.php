@@ -150,12 +150,14 @@ function processUpdate($update) {
                 }
                 break;
                 
-            $bot_info = json_decode(file_get_contents(API_URL . "getMe"), true);
-$bot_username = $bot_info["result"]["username"];
-$msg = "Invite link: https://t.me/{$bot_username}?start={$users[$chat_id]['ref_code']}";
+            case 'referrals':
+    $bot_info = json_decode(file_get_contents(API_URL . "getMe"), true);
+    $bot_username = $bot_info["result"]["username"];
 
-case 'referrals':
-
+    $msg  = "👥 <b>Referral System</b>\n";
+    $msg .= "Your Code: <b>{$users[$chat_id]['ref_code']}</b>\n";
+    $msg .= "Referrals: <b>{$users[$chat_id]['referrals']}</b>\n";
+    $msg .= "Invite Link: https://t.me/{$bot_username}?start={$users[$chat_id]['ref_code']}\n";
     $msg .= "💰 50 points per referral!";
     break;
                 
