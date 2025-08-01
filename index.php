@@ -151,15 +151,8 @@ function processUpdate($update) {
                 break;
                 
             case 'referrals':
-    $bot_info = json_decode(file_get_contents(API_URL . "getMe"), true);
-    $bot_username = $bot_info["result"]["username"];
-
-    $msg  = "👥 <b>Referral System</b>\n";
-    $msg .= "Your Code: <b>{$users[$chat_id]['ref_code']}</b>\n";
-    $msg .= "Referrals: <b>{$users[$chat_id]['referrals']}</b>\n";
-    $msg .= "Invite Link: https://t.me/{$bot_username}?start={$users[$chat_id]['ref_code']}\n";
-    $msg .= "💰 50 points per referral!";
-    break;
+                $msg = "👥 Referral System\nYour code: <b>{$users[$chat_id]['ref_code']}</b>\nReferrals: {$users[$chat_id]['referrals']}\nInvite link: t.me/" . BOT_TOKEN . "?start={$users[$chat_id]['ref_code']}\n50 points per referral!";
+                break;
                 
             case 'withdraw':
                 $min = 100;
